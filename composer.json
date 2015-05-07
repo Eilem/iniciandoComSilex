@@ -1,0 +1,6 @@
+{
+    "name": "Eilem",
+    "require":{
+        "silex/silex" : "~1.2"
+    }
+}
