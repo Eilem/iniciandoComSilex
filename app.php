@@ -1,6 +1,6 @@
 <?php
 
-require_once '/vendor/autoload.php';
+require_once 'vendor/autoload.php';
 
 $app = new Silex\Application();
 
@@ -11,6 +11,7 @@ $app->get('/', function(){
 });
 
 $app->get("/kkk", function(){
+    console.log("jncjsnjs");
     $http = require '/web/hello.html';
     return $http;
 });
@@ -27,6 +28,20 @@ $app->get('/mercadoria/{id}', function( $id){
     var_dump($result);
     return $result;
     
+});
+
+$app->get('sincronizarMercadoria/{id}/{idBook}/{idAgente}', function( $id, $idBook, $idAgente){
+    
+    $card = array(   
+        "identificador"=> $id,
+        "tipo" =>7,
+        "servidor" => 5,
+        "agente" => $idAgente,
+        "book" => $idBook
+        );
+     $cardJson = json_encode($card);
+     
+     var_dump($cardJson);
 });
 
 $app->get('/obtemContratos/{id}', function(  $id ){
